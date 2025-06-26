@@ -26,5 +26,5 @@ blog-app is a full-stack blog platform built with **React** and **Vite**, featur
 
 ## 📸 Screenshots
 
-![Home Page](./src/assets/screenshot0.png)
-![Blog Page](./src/assets/screenshot1.png)
+![Home Page](./frontend/src/assets/screenshot0.png)
+![Blog Page](./frontend/src/assets/screenshot1.png)
