@@ -127,7 +127,7 @@ export const readComments = async (req, res) => {
     const comments = await Comment.find({ blog: id, isApproved: true }).sort({
       createdAt: -1,
     });
-    res.status(200).json({ success: true, message: comments });
+    res.status(200).json({ success: true, comments });
   } catch (error) {
     console.error("Error in readComments: ", error.message);
     return res.status(500).json({ success: false, message: error.message });
