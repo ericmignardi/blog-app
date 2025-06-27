@@ -2,6 +2,7 @@ import Blog from "../models/blogModel.js";
 import Comment from "../models/commentModel.js";
 import fs from "fs";
 import imagekit from "../lib/imagekit.js";
+import main from "../lib/gemini.js";
 
 export const create = async (req, res) => {
   try {
@@ -130,6 +131,19 @@ export const readComments = async (req, res) => {
     res.status(200).json({ success: true, comments });
   } catch (error) {
     console.error("Error in readComments: ", error.message);
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export const generateContent = async (req, res) => {
+  try {
+    const { prompt } = req.body;
+    const content = await main(
+      prompt + "Generate blog content for this topic in simple text format"
+    );
+    res.status(200).json({ success: true, content });
+  } catch (error) {
+    console.error("Error in generateContent: ", error.message);
     return res.status(500).json({ success: false, message: error.message });
   }
 };

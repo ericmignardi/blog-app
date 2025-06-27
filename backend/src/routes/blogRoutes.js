@@ -3,6 +3,7 @@ import {
   create,
   createComment,
   deleteById,
+  generateContent,
   read,
   readAll,
   readComments,
@@ -20,5 +21,7 @@ router.post("/delete", auth, deleteById);
 router.post("/update", auth, togglePublish);
 router.post("/addComment", createComment);
 router.post("/comments", readComments);
+// Gemini Route
+router.post("/generate", auth, generateContent);
 
 export default router;
